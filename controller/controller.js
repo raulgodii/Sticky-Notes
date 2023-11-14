@@ -40,6 +40,11 @@ window.onload = () => {
         newNote.addEventListener('mousedown', (e) => view.moveNote(e, id, offsetLeft, offsetTop));
         newNote.addEventListener('mouseup', (e) => view.stopNote());
 
+        // TRASHBUTTON - Remove the note when button is clicked
+        newNote.querySelector(".trashButton").addEventListener('click', (e) => {
+            notes.removeNote(id); // Remove from the arrayList
+            view.removeNote(id); // Renive from the view
+        });
     });
 
     // COORDINATES - Establish a position to the note if "move" is true

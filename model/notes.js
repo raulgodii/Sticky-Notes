@@ -6,4 +6,8 @@ class Notes{
         this.notesArray.push(note);
         return note.id;
     }
+
+    removeNote(id){
+        this.notesArray.splice(id, 1);
+    }
 }

@@ -151,4 +151,9 @@ class View{
             divNote.style.left = e.clientX-this.offsetX + "px";
         }
     }
+
+    // Remove or delete the note
+    removeNote(id){
+        document.getElementById(id).remove();
+    }
 }
