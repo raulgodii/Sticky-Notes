@@ -43,12 +43,9 @@ class View{
         const main = document.createElement('main');
         main.id = "main";
 
-        // Button to change Views
-        const buttonViews = document.createElement('button');
-        buttonViews.className = 'buttonViews';
-        buttonViews.textContent = 'Change View';
-        buttonViews.id = 'changeViews';
-        main.appendChild(buttonViews);
+        // Change View Button
+        let changeViews = this.createChangeViews();
+        main.appendChild(changeViews);
 
         // Button to create Notes
         const addNote = document.createElement("img");
@@ -58,6 +55,71 @@ class View{
         main.appendChild(addNote);
 
         document.body.appendChild(main);
+
+        // Asign default view to the checkbox
+        let checkbox = document.getElementById('theme-checkbox');
+        if(this.view == 'darkView') checkbox.checked=true;
+    }
+
+    createChangeViews(){
+        // Create the main div element
+        var themeSwitchDiv = document.createElement("div");
+        themeSwitchDiv.className = "theme-switch";
+
+        // Create the checkbox input element
+        var checkboxInput = document.createElement("input");
+        checkboxInput.type = "checkbox";
+        checkboxInput.id = "theme-checkbox";
+
+        // Create the label element
+        var label = document.createElement("label");
+        label.htmlFor = "theme-checkbox";
+
+        // Create the internal div within the label
+        var labelDiv = document.createElement("div");
+
+        // Create the first span inside the label
+        var span1 = document.createElement("span");
+
+        // Create the first SVG inside the first span
+        var svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg1.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svg1.setAttribute("viewBox", "0 0 24 24");
+        svg1.setAttribute("fill", "currentColor");
+        svg1.setAttribute("class", "w-6 h-6");
+
+        var path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path1.setAttribute("fill-rule", "evenodd");
+        path1.setAttribute("d", "M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69a.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z");
+        path1.setAttribute("clip-rule", "evenodd");
+
+        svg1.appendChild(path1);
+        span1.appendChild(svg1);
+
+        // Create the second span inside the label
+        var span2 = document.createElement("span");
+
+        // Create the second SVG inside the second span
+        var svg2 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg2.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        svg2.setAttribute("viewBox", "0 0 24 24");
+        svg2.setAttribute("fill", "currentColor");
+        svg2.setAttribute("class", "w-6 h-6");
+
+        var path2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path2.setAttribute("d", "M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z");
+
+        svg2.appendChild(path2);
+        span2.appendChild(svg2);
+
+        // Add the elements to the document
+        themeSwitchDiv.appendChild(checkboxInput);
+        label.appendChild(labelDiv);
+        label.appendChild(span1);
+        label.appendChild(span2);
+        themeSwitchDiv.appendChild(label);
+
+        return themeSwitchDiv;
     }
 
     changeView(){

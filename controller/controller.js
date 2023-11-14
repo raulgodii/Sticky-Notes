@@ -16,7 +16,7 @@ window.onload = () => {
     view.showMain();
 
     // Change Views Button
-    document.getElementById('changeViews').addEventListener("click", ()=>{
+    document.getElementById('theme-checkbox').addEventListener("click", ()=>{
         view.changeView();
         cookie.setCookie("view", view.view);
     });
