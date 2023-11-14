@@ -1,9 +1,5 @@
 class Cookie{
-    constructor(){
 
-    }
-
-    
     setCookie(id,val){
         document.cookie = id+"="+val;
     }

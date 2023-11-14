@@ -118,12 +118,14 @@ footer{
 .addNote{
     height: 50px;
     position: absolute;
-    top: 100px;
+    top: 150px;
     right: 30px;
+    cursor: pointer;
 }
 
 .buttonViews{
     position: absolute;
     top: 100px;
+    right: 10px;
 }
 

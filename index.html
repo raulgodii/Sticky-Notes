@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="controller/controller.js"></script>
     <script src="view/view.js"></script>
-    <script src="model/model.js"></script>
+    <script src="model/note.js"></script>
+    <script src="model/notes.js"></script>
     <script src="model/cookie.js"></script>
 </head>
 <body>
-
+    <div class="note" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+        <span class="headerNote"> <img class="trashButton" src="img/trashButton.svg" alt="Delete Note"> </span>
+        <textarea class="textArea titleNote" placeholder="Title"></textarea>
+        <textarea class="textArea textNote" maxlength="650" placeholder="Write here your note."></textarea>
+    </div>
 </body>
 </html>

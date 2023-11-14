@@ -20,4 +20,15 @@ window.onload = () => {
         view.changeView();
         cookie.setCookie("view", view.view);
     });
+
+    // Create class notes
+    notes = new Notes();
+
+    // Add Note Button
+    document.getElementById('addNote').addEventListener("click", () => {
+        let id = notes.addNote();
+        view.showNote(id);
+    });
+
+    // New Note
 }

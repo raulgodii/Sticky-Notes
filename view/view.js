@@ -10,22 +10,22 @@ class View{
         // Header Element
         const header = document.createElement('header');
 
-        // Logo Note 
+        // Logo/Vector Note 
         const vectorNote = document.createElement('img');
         if(this.view =='darkView'){
             vectorNote.src = "img/vectorNoteWhite.svg";
         } else{
             vectorNote.src = "img/vectorNoteBlack.svg";
         }
-        
         vectorNote.className = 'vectorNote';
+        header.appendChild(vectorNote);
 
         // Title
         const title = document.createElement('h1');
         title.textContent = "Sticky Notes"
-
-        header.appendChild(vectorNote);
         header.appendChild(title);
+        
+        
         document.body.appendChild(header);
     }
 
@@ -39,6 +39,13 @@ class View{
         buttonViews.textContent = 'Change View';
         buttonViews.id = 'changeViews';
         main.appendChild(buttonViews);
+
+        // Button to create Notes
+        const addNote = document.createElement("img");
+        addNote.src = "img/addNote.svg";
+        addNote.className = "addNote";
+        addNote.id = "addNote";
+        main.appendChild(addNote);
 
         document.body.appendChild(main);
     }
@@ -57,7 +64,12 @@ class View{
         return this.view;
     }
 
-    changeVectorNote(){
-        
+    showNote(id){
+        // DIV
+        const note = document.createElement("div");
+        note.className="note";
+        note.setAttribute("oninput", 'this.style.height = "";this.style.height = this.scrollHeight + "px"');
+        note.id = id;
+        document.main.appendChild(note);
     }
 }
