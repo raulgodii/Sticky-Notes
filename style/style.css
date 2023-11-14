@@ -129,3 +129,8 @@ footer{
     right: 10px;
 }
 
+
+.creationDate{
+    position: absolute;
+    left: 4px;
+}

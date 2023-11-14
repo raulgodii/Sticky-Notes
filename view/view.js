@@ -74,7 +74,7 @@ class View{
         return this.view;
     }
 
-    showNote(id){
+    showNote(id, creationDate){
         // DIV
         const div = document.createElement("div");
         div.className="note";
@@ -85,6 +85,12 @@ class View{
         // SPAN
         const span = document.createElement("span");
         span.className = "headerNote";
+
+        // P - Creation date of the note
+        const p = document.createElement("p");
+        p.className = "creationDate";
+        p.textContent = creationDate;
+        span.appendChild(p); // Add p to the span
 
         // IMG
         const img = document.createElement("img");
@@ -108,6 +114,7 @@ class View{
         div.appendChild(span);
         div.appendChild(textarea1);
         div.appendChild(textarea2);
+
 
         // Add al div to the main
         const main = document.getElementById("main");

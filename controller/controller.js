@@ -27,7 +27,7 @@ window.onload = () => {
     // Add Note - Button Event 'click'
     document.getElementById('addNote').addEventListener("click", () => {
         let id = notes.addNote();
-        view.showNote(id);
+        view.showNote(id, notes.notesArray[id].creationDate);
 
         let newNote = document.getElementById(id);
         // Limit the area for writing
