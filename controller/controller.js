@@ -24,11 +24,24 @@ window.onload = () => {
     // Create class notes
     notes = new Notes();
 
-    // Add Note Button
+    // Add Note - Button Event 'click'
     document.getElementById('addNote').addEventListener("click", () => {
         let id = notes.addNote();
         view.showNote(id);
+
+        let newNote = document.getElementById(id);
+        // Limit the area for writing
+        newNote.addEventListener('input', (e) => view.limitTextArea(e));
+
+        let offsetLeft = newNote.offsetLeft;
+        let offsetTop = newNote.offsetTop;
+
+        // Allows to move the note
+        newNote.addEventListener('mousedown', (e) => view.moveNote(e, id, offsetLeft, offsetTop));
+        newNote.addEventListener('mouseup', (e) => view.stopNote());
+
     });
 
-    // New Note
+    // COORDINATES - Establish a position to the note if "move" is true
+    document.addEventListener("mousemove", (e) => view.moving(e));
 }
