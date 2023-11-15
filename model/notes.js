@@ -1,11 +1,18 @@
 class Notes{
     notesArray = [];
 
-    addNote(){
-        let note = new Note(this.findLastId());
+    addNote(id=null, title="", text="", creationDate=null){
+        let note;
+        if(id==null){
+            let date = new Date();
+            creationDate = date.getDate() + "/" + parseInt(date.getMonth() + 1) + "/" + date.getFullYear();
+            note = new Note("note" + this.findLastId(), title, text, creationDate);
+        } else{
+            note = new Note(id, title, text, creationDate);
+        }
+        
         this.notesArray.push(note);
         return note.id;
-        
     }
 
     removeNote(id){

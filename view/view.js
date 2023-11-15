@@ -136,7 +136,7 @@ class View{
         return this.view;
     }
 
-    showNote(id, creationDate){
+    showNote(id, title, text, creationDate){
         // DIV
         const div = document.createElement("div");
         div.className="note";
@@ -165,12 +165,14 @@ class View{
         const textarea1 = document.createElement("textarea");
         textarea1.className = "textArea titleNote";
         textarea1.placeholder = "Title";
+        textarea1.textContent = title;
 
         // TEXTAREA 2
         const textarea2 = document.createElement("textarea");
         textarea2.className = "textArea textNote";
         textarea2.maxLength = "650";
         textarea2.placeholder = "Write here your note.";
+        textarea2.textContent = text;
 
         // Add all elementes to the div
         div.appendChild(span);

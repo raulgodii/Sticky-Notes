@@ -1,11 +1,9 @@
 class Note{
     creationDate;
-    constructor(id=null){
-        this.id = "note"+id;
-        this.title = "";
-        this.text = "";
-
-        let date = new Date();
-        this.creationDate = date.getDate() + "/" + parseInt(date.getMonth() + 1) + "/" + date.getFullYear();
+    constructor(id, title, text, creationDate){
+        this.id = id;
+        this.title = title;
+        this.text = text;
+        this.creationDate = creationDate;
     }
 }

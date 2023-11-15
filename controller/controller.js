@@ -24,10 +24,23 @@ window.onload = () => {
     // Create class notes
     notes = new Notes();
 
+    // Load previous notes
+    if(window.localStorage.getItem("notes")){
+        notesStorage = JSON.parse(window.localStorage.getItem("notes"));
+        notesStorage.forEach(note => {
+            notes.addNote(note.id, note.title, note.text, note.creationDate);
+            createNote(note.id);
+        });
+    }
+
     // Add Note - Button Event 'click'
     document.getElementById('addNote').addEventListener("click", () => {
         let id = notes.addNote();
-        view.showNote(id, notes.notesArray[notes.findIndexFromId(id)].creationDate);
+        createNote(id);
+    });
+
+    function createNote(id){
+        view.showNote(id, notes.notesArray[notes.findIndexFromId(id)].title, notes.notesArray[notes.findIndexFromId(id)].text, notes.notesArray[notes.findIndexFromId(id)].creationDate);
 
         let newNote = document.getElementById(id);
         // TextArea Event - Limit the area for writing
@@ -48,7 +61,7 @@ window.onload = () => {
 
         // Save Note Event - Save and update the note to the localStorage per each keydown
         newNote.addEventListener("keydown", (e) => notes.updateLocalStorage(id, document.querySelector("#" + id + " .titleNote").value, document.querySelector("#" + id + " .textNote").value));
-    });
+    }
 
     // COORDINATES - Establish a position to the note if "move" is true
     document.addEventListener("mousemove", (e) => view.moving(e));
