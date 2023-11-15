@@ -27,24 +27,27 @@ window.onload = () => {
     // Add Note - Button Event 'click'
     document.getElementById('addNote').addEventListener("click", () => {
         let id = notes.addNote();
-        view.showNote(id, notes.notesArray[id].creationDate);
+        view.showNote(id, notes.notesArray[notes.findIndexFromId(id)].creationDate);
 
         let newNote = document.getElementById(id);
-        // Limit the area for writing
+        // TextArea Event - Limit the area for writing
         newNote.addEventListener('input', (e) => view.limitTextArea(e));
 
         let offsetLeft = newNote.offsetLeft;
         let offsetTop = newNote.offsetTop;
 
-        // Allows to move the note
+        // Moving Event - Allows to move the note
         newNote.addEventListener('mousedown', (e) => view.moveNote(e, id, offsetLeft, offsetTop));
         newNote.addEventListener('mouseup', (e) => view.stopNote());
 
-        // TRASHBUTTON - Remove the note when button is clicked
+        // TRASHBUTTON Event - Remove the note when button is clicked
         newNote.querySelector(".trashButton").addEventListener('click', (e) => {
             notes.removeNote(id); // Remove from the arrayList
             view.removeNote(id); // Renive from the view
         });
+
+        // Save Note Event - Save and update the note to the localStorage per each keydown
+        newNote.addEventListener("keydown", (e) => notes.updateLocalStorage(id, document.querySelector("#" + id + " .titleNote").value, document.querySelector("#" + id + " .textNote").value));
     });
 
     // COORDINATES - Establish a position to the note if "move" is true

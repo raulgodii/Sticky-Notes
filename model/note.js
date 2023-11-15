@@ -1,7 +1,7 @@
 class Note{
     creationDate;
     constructor(id=null){
-        this.id = id;
+        this.id = "note"+id;
         this.title = "";
         this.text = "";
 
