@@ -19,7 +19,11 @@ class Notes{
 
         let i = this.findIndexFromId(id);
 
-        if(i!=-1) this.notesArray.splice(i, 1);
+        if(i!=-1){
+            this.notesArray.splice(i, 1);
+        }
+
+        window.localStorage.setItem("notes", JSON.stringify(this.notesArray));
     }
 
     findLastId(){

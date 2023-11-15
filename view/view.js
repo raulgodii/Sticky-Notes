@@ -6,10 +6,15 @@ class View{
 
     id; // ID to know  what note we are moving
 
+    marginTop;
+    marginLeft;
+
     constructor(view = 'darkView'){
         this.view = view;
         this.move = false;
 
+        this.marginTop = 120;
+        this.marginLeft = 40;
     }
 
     showHeader(){
@@ -142,7 +147,6 @@ class View{
         div.className="note";
         div.setAttribute("oninput", 'this.style.height = "";this.style.height = this.scrollHeight + "px"');
         div.id = id;
-        
 
         // SPAN
         const span = document.createElement("span");
@@ -183,6 +187,12 @@ class View{
         // Add al div to the main
         const main = document.getElementById("main");
         main.appendChild(div);
+
+        // Add margin to the new note
+        this.marginTop += 20;
+        this.marginLeft += 20;
+        div.style.marginTop = this.marginTop + "px";
+        div.style.marginLeft = this.marginLeft + "px";
     }
 
     // Limit the area of textArea
