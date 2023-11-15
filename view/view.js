@@ -66,6 +66,18 @@ class View{
         if(this.view == 'darkView') checkbox.checked=true;
     }
 
+    showFooter(){
+        // Footer Element
+        const footer = document.createElement("footer");
+
+        // p
+        const p = document.createElement("p");
+        p.textContent = "© Raúl González Díaz | 2023";
+        footer.appendChild(p);
+
+        document.body.appendChild(footer);
+    }
+
     createChangeViews(){
         // Create the main div element
         var themeSwitchDiv = document.createElement("div");

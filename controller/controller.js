@@ -14,6 +14,7 @@ window.onload = () => {
     // Show Header - Main - Footer
     view.showHeader();
     view.showMain();
+    view.showFooter();
 
     // Change Views Button
     document.getElementById('theme-checkbox').addEventListener("click", ()=>{

@@ -27,6 +27,18 @@
     color: #343a40;
 }
 
+.darkView footer{
+    background-color: #343a40;
+    color: #ced4da;
+    border-top: 1px solid #ced4da;
+}
+
+.lightView footer{
+    background-color: #f8f9fa;
+    color: #343a40;
+    border-top: 1px solid #343a40;
+}
+
 .lightView .note{
     background-color: #f8f9fa;
 }
@@ -115,7 +127,6 @@ header{
 }
 
 footer{
-    font-family: Libre Franklin;
     position: absolute;
     bottom: 0;
     width: 100%;
