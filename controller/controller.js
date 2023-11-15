@@ -50,9 +50,10 @@ window.onload = () => {
         let offsetLeft = newNote.offsetLeft;
         let offsetTop = newNote.offsetTop;
 
-        // Moving Event - Allows to move the note
-        newNote.addEventListener('mousedown', (e) => view.moveNote(e, id, offsetLeft, offsetTop));
-        newNote.addEventListener('mouseup', (e) => view.stopNote());
+        // Moving Event - Allows to move and drag the note
+        const span = newNote.querySelector(".headerNote");
+        span.addEventListener('mousedown', (e) => view.moveNote(e, id, offsetLeft, offsetTop));
+        span.addEventListener('mouseup', (e) => view.stopNote());
 
         // TRASHBUTTON Event - Remove the note when button is clicked
         newNote.querySelector(".trashButton").addEventListener('click', (e) => {
