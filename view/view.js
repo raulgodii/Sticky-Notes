@@ -206,13 +206,13 @@ class View{
         div.style.marginTop = this.marginTop + "px";
         div.style.marginLeft = this.marginLeft + "px";
 
-        this.limnitArea(textarea2);
-        this.limnitArea(div);
+        this.limitArea(textarea2);
+        this.limitArea(div);
     }
 
     // Limit the area of textArea
     limitTextArea(e){
-        this.limnitArea(e.target);
+        this.limitArea(e.target);
     }
 
     limitArea(x){
