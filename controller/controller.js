@@ -34,6 +34,21 @@ window.onload = () => {
         });
     }
 
+    // Load example notes from server with AJAX
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function() {
+    //   if (this.readyState == 4 && this.status == 200) {
+    //     notesStorage = JSON.parse(this.responseText);
+    //     notesStorage.forEach(note => {
+    //         notes.addNote(note.id, note.title, note.text, note.creationDate);
+    //         createNote(note.id);
+    //     });
+    //   }
+    // };
+    // xhttp.open("GET", "example.php", true);
+    // document.write("Loading...");
+    // xhttp.send();
+
     // Add Note - Button Event 'click'
     document.getElementById('addNote').addEventListener("click", () => {
         let id = notes.addNote();
@@ -44,8 +59,6 @@ window.onload = () => {
         view.showNote(id, notes.notesArray[notes.findIndexFromId(id)].title, notes.notesArray[notes.findIndexFromId(id)].text, notes.notesArray[notes.findIndexFromId(id)].creationDate);
 
         let newNote = document.getElementById(id);
-        // TextArea Event - Limit the area for writing
-        newNote.addEventListener('input', (e) => view.limitTextArea(e));
 
         let offsetLeft = newNote.offsetLeft;
         let offsetTop = newNote.offsetTop;
@@ -63,6 +76,9 @@ window.onload = () => {
 
         // Save Note Event - Save and update the note to the localStorage per each keydown
         newNote.addEventListener("keydown", (e) => notes.updateLocalStorage(id, document.querySelector("#" + id + " .titleNote").value, document.querySelector("#" + id + " .textNote").value));
+    
+        // TextArea Event - Limit the area for writing
+        newNote.addEventListener('input', (e) => view.limitTextArea(e));
     }
 
     // COORDINATES - Establish a position to the note if "move" is true

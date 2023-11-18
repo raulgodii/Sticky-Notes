@@ -205,15 +205,22 @@ class View{
         this.marginLeft += 20;
         div.style.marginTop = this.marginTop + "px";
         div.style.marginLeft = this.marginLeft + "px";
+
+        this.limnitArea(textarea2);
+        this.limnitArea(div);
     }
 
     // Limit the area of textArea
     limitTextArea(e){
-        e.target.style.height = "";
-        e.target.style.height = e.target.scrollHeight + "px";
-        if (e.target.scrollHeight > e.target.clientHeight) {
+        this.limnitArea(e.target);
+    }
+
+    limitArea(x){
+        x.style.height = "";
+        x.style.height = x.scrollHeight + "px";
+        if (x.scrollHeight > x.clientHeight) {
             // Restrict entry if the height exceeds the limit.
-            e.target.value = e.target.value.slice(0, -1);
+            x.value = x.value.slice(0, -1);
         }
     }
 
